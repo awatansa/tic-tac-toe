@@ -1,4 +1,5 @@
 import Square from "components/Square";
+import { GiCrossMark, GiCheckMark } from "react-icons/gi";
 import { useGame } from "hooks";
 import "App.css";
 
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <div className={`app ${currentPlayer ? "light" : "dark"}`}>
-      <h2>Player {currentPlayer ? "1" : "2"}</h2>
+      <h2>Player {currentPlayer ? <GiCheckMark /> : <GiCrossMark />}</h2>
       <div className="container">
         <div className="row">
           <div className="col">
@@ -92,8 +93,8 @@ function App() {
         </div>
       </div>
       <div>
-        {winner === "true" ? "Player 1 is Winner" : ""}
-        {winner === "false" ? "Player 2 is Winner" : ""}
+        {winner === "true" ? <span>Player <GiCheckMark /> is Winner</span> : ""}
+        {winner === "false" ? <span>Player <GiCrossMark /> is Winner</span> : ""}
       </div>
       <div>
         <button className="button-1" onClick={reset}>
